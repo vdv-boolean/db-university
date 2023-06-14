@@ -1,0 +1,1 @@
+1: SELECT `name`, `surname` FROM `students` WHERE `date_of_birth` LIKE '1990%';
