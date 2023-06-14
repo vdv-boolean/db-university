@@ -11,3 +11,5 @@
 6: SELECT * FROM `degrees` WHERE `level` LIKE 'M%';
 
 7: SELECT COUNT(`id`) AS 'Numero di dipartimenti' FROM `departments`;
+
+8: SELECT `name`, `surname` FROM `teachers` WHERE `phone` IS NULL;
