@@ -3,3 +3,5 @@
 2: SELECT * FROM `courses` WHERE `cfu` > '10' ORDER BY `cfu`;
 
 3: SELECT * FROM `students` WHERE `date_of_birth` < '1993' ORDER BY `date_of_birth`;
+
+4: SELECT * FROM `courses` WHERE `period` LIKE 'I %' AND `year` = '1';
