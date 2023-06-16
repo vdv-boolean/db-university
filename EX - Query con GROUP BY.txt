@@ -1,0 +1,1 @@
+1. SELECT YEAR(`students`.`date_of_birth`) AS `anno_immatricolazione`, COUNT(`students`.`id`) AS `numero_studenti_immatricolati` FROM `students` GROUP BY YEAR(`students`.`date_of_birth`);
