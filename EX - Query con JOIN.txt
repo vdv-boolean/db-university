@@ -1,0 +1,13 @@
+1. SELECT `students`.`name`, `students`.`surname`, `degrees`.`name` FROM `degrees` JOIN `students` ON `degrees`.`id` = `students`.`degree_id` WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+
+2. SELECT `degrees`.`name`, `degrees`.`level`, `departments`.`name` FROM `departments` JOIN `degrees` ON `departments`.`id` = `degrees`.`department_id` WHERE `departments`.`name` = 'Dipartimento di Neuroscienze' AND `degrees`.`level` = 'magistrale';
+
+3. SELECT `teachers`.`name`, `teachers`.`surname`, `courses`.`name` FROM `teachers` JOIN `course_teacher` ON `teachers`.`id` = `course_teacher`.`teacher_id` JOIN `courses` ON `courses`.`id` = `course_teacher`.`course_id` WHERE `teachers`.`id` = 44; (11)
+
+4. SELECT `students`.`name`, `students`.`surname`, `departments`.`name` AS `name_of_department`, `degrees`.* FROM `students` JOIN `degrees` ON `students`.`degree_id` = `degrees`.`id` JOIN `departments` ON `degrees`.`department_id` = `departments`.`id` ORDER BY `students`.`name` ASC, `students`.`surname` ASC;
+
+5. SELECT `degrees`.`name` AS `name_of_degree`, `courses`.`name` AS `name_of_course`, `teachers`.`name` AS `name_of_teacher`, `teachers`.`surname` FROM `degrees` JOIN `courses` ON `degrees`.`id` = `courses`.`degree_id` JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id` JOIN `teachers` ON `course_teacher`.`teacher_id` = `teachers`.`id` ORDER BY `degrees`.`name` ASC; (1317)
+
+6. SELECT DISTINCT `teachers`.`name` AS `name_of_teacher`, `teachers`.`surname`, `departments`.`name` AS `name_of_department` FROM `departments` JOIN `degrees` ON `departments`.`id` = `degrees`.`department_id` JOIN `courses` ON `degrees`.`id` = `courses`.`degree_id` JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id` JOIN `teachers` ON `course_teacher`.`teacher_id` = `teachers`.`id` WHERE `departments`.`name` = 'Dipartimento di Matematica' ORDER BY `teachers`.`name` ASC, `teachers`.`surname` ASC; (70)
+
+7. SELECT `students`.`name` AS `name_of_student`, `students`.`surname`, COUNT(`exams`.`id`) AS `number_of_chance`, MAX(`exam_student`.`vote`) AS `bigger_vote` FROM `students` JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id` JOIN `exams` ON `exam_student`.`exam_id` = `exams`.`id` WHERE `exam_student`.`vote` >= 18 GROUP BY `students`.`id`;
